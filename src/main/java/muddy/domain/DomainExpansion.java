@@ -1,6 +1,7 @@
 package muddy.domain;
 
 import jdk.jfr.Event;
+import muddy.domain.block.ModBlocks;
 import muddy.domain.entity.ModEntities;
 import muddy.domain.entity.custom.DomainEntity;
 import muddy.domain.item.ModItems;
@@ -24,6 +25,7 @@ public class DomainExpansion implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		ModItems.initialize();
+		ModBlocks.initialize();
 
 		FabricDefaultAttributeRegistry.register(ModEntities.DOMAIN_ENTITY, DomainEntity.createDomainAttributes());
 
