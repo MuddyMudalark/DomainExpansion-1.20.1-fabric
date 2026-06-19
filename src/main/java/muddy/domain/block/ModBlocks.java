@@ -7,9 +7,8 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.BarrierBlock;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.LightBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 
@@ -30,13 +29,20 @@ public class ModBlocks {
     }
 
     public static final Block DOMAIN_BARRIER_BLOCK = register(
-            new Block(BlockBehaviour.Properties.of().strength(-1.0F, 3600000.0F).sound(SoundType.GLASS)),
+            new Block(BlockBehaviour.Properties.of()
+                    .strength(-1.0F, 3600000.0F)
+                    .lightLevel((blockState) -> 15)
+                    .sound(SoundType.GLASS)),
             "domain_barrier",
             false
     );
 
+
+
     public static final Block MUDDY_BRANDED_AIR_BLOCK = register(
-            new DomainAirBlock(BlockBehaviour.Properties.of().air()),
+            new DomainAirBlock(BlockBehaviour.Properties.of()
+                    .lightLevel((blockState) -> 15)
+                    .air()),
             "domain_air",
             false);
 
